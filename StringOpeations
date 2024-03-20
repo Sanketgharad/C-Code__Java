@@ -1,0 +1,19 @@
+ class StringOperations {
+    public static void main(String[] args) {
+        String firstStr = "software";
+        String secStr = "platform";
+
+        int len = firstStr.length();
+        System.out.println("Length of firstStr : " + len);
+
+        secStr = "software";
+        System.out.println("Resultant string (secStr): " + secStr);
+
+        System.out.println("Comparing firstStr and secStr: " + firstStr.compareTo(secStr));
+
+        secStr = secStr.concat(" for you");
+        System.out.println("Concatenated secStr: " + secStr);
+
+        System.out.println("First occurrence of 'f' in firstStr at: " + firstStr.indexOf('f'));
+    }
+}
