@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+class Calci {
+    private float a;
+    private float b;
+
+    public void getData() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the numbers:");
+        a = scanner.nextFloat();
+        b = scanner.nextFloat();
+    }
+
+    public float add() {
+        return a + b;
+    }
+
+    public float sub() {
+        return a - b;
+    }
+
+    public float mul() {
+        return a * b;
+    }
+
+    public float div() {
+        if (b != 0) {
+            return a / b;
+
+        }else
+
+        {
+            return (char)'E'+(char)'R'+(char)'R'+(char)'O'+(char)'R';
+        }
+    }
+
+
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int cond = 1;
+
+        do {
+            Calci c1 = new Calci();
+            c1.getData();
+
+            System.out.println("Enter your choice:");
+            char ch = scanner.next().charAt(0);
+
+            switch (ch) {
+                case '+':
+                    System.out.println("Addition is: " + c1.add());
+                    break;
+                case '-':
+                    System.out.println("Subtraction is: " + c1.sub());
+                    break;
+                case '*':
+                    System.out.println("Multiplication is: " + c1.mul());
+                    break;
+                case '/':
+                    System.out.println("Division is: " + c1.div());
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+
+            System.out.println("Enter 1 to continue or any other number to exit:");
+            cond = scanner.nextInt();
+        } while (cond == 1);
+    }
+}
+
