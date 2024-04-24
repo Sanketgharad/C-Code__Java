@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+class Triangle {
+    private int a, b, c; 
+    private double area;
+    private int perimeter;
+
+    
+    public Triangle() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter side 1 (base): ");
+        a = sc.nextInt();
+
+        System.out.print("Enter side 2 (height): ");
+        b = sc.nextInt();
+
+        System.out.print("Enter side 3: ");
+        c = sc.nextInt();
+
+        area = (a * b) / 2.0;
+        perimeter = a + b + c;
+
+        System.out.println("Area is: " + area);
+        System.out.println("Perimeter is: "+ perimeter);
+    }
+
+
+    public Triangle(int side1, int side2, int side3) {
+        a = side1;
+        b = side2;
+        c = side3;
+
+        area = (a * b) / 2.0;
+        perimeter = a + b + c;
+
+        System.out.println("Area is: " + area);
+        System.out.println("Perimeter is: " + perimeter);
+    }
+
+    public Triangle(Triangle t) {
+        this.a = t.a;
+        this.b = t.b;
+        this.c = t.c;
+        this.area = t.area;
+        this.perimeter = t.perimeter;
+
+        System.out.println("Area is: " + area);
+        System.out.println("Perimeter is: " + perimeter);
+    }
+}
+
+ class Main {
+    public static void main(String[] args) {
+        Triangle defaultTriangle = new Triangle();
+        Triangle paramTriangle = new Triangle(4, 5, 6);
+        Triangle copyTriangle = new Triangle(paramTriangle);
+    }
+}
