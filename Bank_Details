@@ -1,0 +1,87 @@
+import java.util.Scanner;
+import java.util.logging.SocketHandler;
+
+class Bank {
+    String name;
+    long ac_no;
+    String bank_name;
+    float balance;
+    Scanner sc=new Scanner(System.in);
+    void get_data(){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter Name");
+        name=sc.next().toString();
+
+
+        System.out.println("Enter account number");
+        ac_no=sc.nextLong();
+
+        System.out.println("Enter Bank Name");
+        bank_name=sc.next().toString();
+
+        System.out.println("Enter the Bank Balance");
+        balance=sc.nextInt();
+
+    }
+    void Display(){
+        System.out.println("name is::" +name);
+        System.out.println("Account Number is::" +this.ac_no);
+        System.out.println("Bank name is::" + bank_name);
+        System.out.println("bank balance is::" +balance);
+
+    }
+    void Debit(){
+        float amt;
+        System.out.println("enter the amount");
+        amt=sc.nextFloat();
+        if(amt<balance&&balance>2000){
+        balance=balance-amt;
+        Display();
+
+    }}
+    void Credit(){
+        float amt;
+        System.out.println("enter the Amount");
+        amt=sc.nextFloat();
+        balance=balance+amt;
+        Display();
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        Bank b = new Bank();
+        b.get_data();
+        int condition=1;
+        do {
+
+
+
+          //  b.Display();
+            int ch;
+            System.out.println("Enter your choise\n1. Debit Amount\n2. Credit Amount\n3. Display Bank Details");
+            ch=sc.nextInt();
+            switch (ch){
+
+                case 1:
+                    b.Debit();
+                    break;
+
+                case 2:
+                    b.Credit();
+                    break;
+
+                case 3:
+                    b.Display();
+                    break;
+
+                default:
+                    System.out.println("Invalid Choise");
+
+            }
+            System.out.println("enter 1 for process is continue");
+            condition =sc.nextInt();
+        }while (condition==1);
+    }
+}
+
